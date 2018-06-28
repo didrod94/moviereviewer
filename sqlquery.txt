@@ -1,0 +1,55 @@
+CREATE USER 'movierev09'@'localhost' IDENTIFIED BY 'moviereview09';
+GRANT ALL PRIVILEGES ON `team09`.* TO 'movierev09'@'localhost' IDENTIFIED BY 'moviereview09' WITH GRANT OPTION; 
+
+
+CREATE TABLE `team09`.`userinfo` (
+    `user_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `username` VARCHAR(30) NOT NULL,
+    `email` VARCHAR(50) NOT NULL,
+    `upassword` CHAR(255) NOT NULL,
+    `gender`  VARCHAR(6),
+    `user_role` VARCHAR(10)
+) ENGINE = InnoDB;
+
+CREATE TABLE `team09`.`login_attempts` (
+    `user_id` INT(11) NOT NULL,
+    `time` VARCHAR(30) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE `team09`.`MOVIE`(
+  `name` VARCHAR(22),
+  `director` VARCHAR(9),
+  `date` DATE,
+  `genre` VARCHAR(3),
+  `rating` VARCHAR(4),
+  `runningtime` INT(3),
+  `nationality` VARCHAR(5)
+)ENGINE=InnoDB;
+
+CREATE TABLE `team09`.`categories`(
+  `cat_id` INT(3) AUTO_INCREMENT PRIMARY KEY,
+  `cat_title` VARCHAR(25)
+);
+
+CREATE TABLE `team09`.`comments`(
+  `comment_id` INT(3) AUTO_INCREMENT PRIMARY KEY,
+  `comment_post_id` INT(3) ,
+  `comment_author` VARCHAR(20),
+  `commnet_content` TEXT,
+  `comment_date` date
+);
+
+CREATE TABLE `team09`.`posts`(
+  `post_id` INT(3) AUTO_INCREMENT PRIMARY KEY,
+  `post_genre` VARCHAR(10), 
+  `post_title` VARCHAR(50),
+  `post_author` VARCHAR(30),
+  `post_date` DATE,
+  `post_image` TEXT,
+  `post_content` TEXT,
+  `post_tags` VARCHAR(128),
+  `post_commentCount` int(11),
+  `post_star` int(11)
+);
+   
+
